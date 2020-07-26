@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import "./Componentes/style/main.scss"
+import AddItem from './Componentes/AddItem';
+import Item from "./Componentes/Item"
+
 
 function App() {
+  const [list, setList] = useState([])
+
+  const addItem = (value) =>{
+    const newItem = [{ value }, ...list];
+    setList(newItem)
+  }
+
+  const completeItem = index =>{
+    const newItem = [...list]
+    setList(newItem)
+  }
+
+  const removeItem = index =>{
+    const newItem =[...list]
+    newItem.splice(index,1)
+    setList(newItem)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <h1 className="title">ToDo List</h1>
+      <AddItem addItem={addItem}/>
+         {list.map((item, index) =>(
+          <Item key={index} index={index} item={item} completeItem={completeItem} removeItem={removeItem}/>
+  ))};
+
     </div>
-  );
-}
+    )}
 
 export default App;
