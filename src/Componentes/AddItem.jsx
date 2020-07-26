@@ -11,12 +11,7 @@ const sendText = (event) =>{
 
 
 }
-// const handleSubmit = e => {
-//     e.preventDefault();
-//     if (!value) return;
-//     addTodo(value);
-//     setValue("");
-//   };
+
     return(
         <div className="componenteSend">
         <label htmlFor="list"></label>
