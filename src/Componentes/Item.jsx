@@ -2,6 +2,7 @@ import React from "react";
 import { RiDeleteBinLine, RiCheckboxCircleLine } from "react-icons/ri";
 
 const Item = ({item, index, completeItem, removeItem }) => {
+
     return(
         <div className="item" style={{textDecoration: item.isCompleted ? "line-through" : ""}}>
             {item.value}
