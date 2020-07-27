@@ -8,10 +8,7 @@ const sendText = (event) =>{
     if(!InputValue) return
     addItem(InputValue)
     setInputValue("")
-
-
 }
-
     return(
         <div className="componenteSend">
         <label htmlFor="list"></label>

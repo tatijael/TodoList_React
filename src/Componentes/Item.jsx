@@ -1,12 +1,14 @@
 import React from "react";
-// import { RiDeleteBinLine } from "react-icons/ri";
+import { RiDeleteBinLine, RiCheckboxCircleLine } from "react-icons/ri";
 
 const Item = ({item, index, completeItem, removeItem }) => {
     return(
-        <div>
+        <div className="item" style={{textDecoration: item.isCompleted ? "line-through" : ""}}>
             {item.value}
-            <button onClick={() => completeItem(index)}>Complete</button>
-            <button onClick={()=> removeItem(index)}>X</button>
+            <div>
+                <button className="btn-item" onClick={() => completeItem(index)}><RiCheckboxCircleLine /></button>
+                <button className="btn-item" onClick={()=> removeItem(index)}><RiDeleteBinLine /></button>
+            </div>
         </div>
     )
 };

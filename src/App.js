@@ -15,6 +15,7 @@ function App() {
 
   const completeItem = index =>{
     const newItem = [...list]
+    newItem[index].isCompleted = true;
     setList(newItem)
   }
 
@@ -25,12 +26,12 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper"> 
       <h1 className="title">ToDo List</h1>
       <AddItem addItem={addItem}/>
          {list.map((item, index) =>(
           <Item key={index} index={index} item={item} completeItem={completeItem} removeItem={removeItem}/>
-  ))};
+  ))}
 
     </div>
     )}
