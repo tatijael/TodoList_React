@@ -10,7 +10,7 @@ function App() {
   const [filters, setFilters] = useState(null)
 
   const addItem = (value) =>{
-    const newItem = [{ value }, ...list];
+    const newItem = [{ value,isCompleted:false }, ...list];
     setList(newItem)
   }
 
@@ -37,12 +37,13 @@ function App() {
       <h1 className="title">ToDo List</h1>
       <AddItem addItem={addItem}/>
       {list.filter(item=>{
-        if(filters){
+        console.log({filters,item})
+        if(filters !== null){
           return filters === item.isCompleted
         }
         return true
       }).map((item, index) =><Item key={index} index={index} item={item} completeItem={completeItem} removeItem={removeItem}/>)}
-      <Button incompleto={()=>setFilters()} todos={()=>setFilters(false)} complete={()=>setFilters(true) }/>
+      <Button setFilters={setFilters}/>
       
 
     </div>

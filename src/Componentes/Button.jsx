@@ -1,13 +1,13 @@
 import React from "react";
 
-const Button = ({complete, todos, incompleto}) => {
+const Button = ({setFilters}) => {
     return(
         <div>
-        <button onClick={todos} className="btn-filter">Todas</button>
-        <button  onClick={complete} className="btn-filter">Completas</button>
-        <button onClick={incompleto} className="btn-filter">Incompletas</button>
+        <button onClick={()=>setFilters(null)} className="btn-filter">Todas</button>
+        <button  onClick={()=>setFilters(true)} className="btn-filter">Completas</button>
+        <button onClick={()=>setFilters(false)} className="btn-filter">Incompletas</button>
         </div>
     )
 }
 
-export default Button
+export default Button;
