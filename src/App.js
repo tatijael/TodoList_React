@@ -4,10 +4,12 @@ import "./Componentes/style/main.scss"
 import AddItem from './Componentes/AddItem';
 import Item from "./Componentes/Item"
 import Button from './Componentes/Button';
+import { FcSurvey } from "react-icons/fc";
 
 function App() {
   const [list, setList] = useState([])
   const [filters, setFilters] = useState(null)
+  
 
   const addItem = (value) =>{
     const newItem = [{ value,isCompleted:false }, ...list];
@@ -26,24 +28,23 @@ function App() {
     setList(newItem)
   }
 
-
-
-/// null ->son todos los item
-// iscomple == filter-> son todos los competos
-// is completed false -> incompletos
+const changeText = (event, index) =>{
+  const newList = [...list]
+  newList[index].value = event.target.value
+  setList(newList)
+}
 
   return (
     <div className="wrapper"> 
-      <h1 className="title">ToDo List</h1>
+      <h1>ToDo List  <FcSurvey /></h1>
       <AddItem addItem={addItem}/>
       {list.filter(item=>{
-        console.log({filters,item})
         if(filters !== null){
           return filters === item.isCompleted
         }
         return true
-      }).map((item, index) =><Item key={index} index={index} item={item} completeItem={completeItem} removeItem={removeItem}/>)}
-      <Button setFilters={setFilters}/>
+      }).map((item, index) =><Item key={index} index={index} item={item} completeItem={completeItem} removeItem={removeItem} changeText={changeText}/>)}
+      <Button setFilters={setFilters} changeText={changeText}/>
       
 
     </div>
