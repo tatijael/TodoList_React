@@ -5,7 +5,7 @@ import { RiDeleteBinLine, RiCheckboxCircleLine, RiPencilLine } from "react-icons
 const Item = ({item, index, completeItem, removeItem, changeText }) => {
     const[edit, setEdit] = useState(true)
     return(
-        <div className="item" style={{textDecoration: item.isCompleted ? "line-through" : ""}}>
+        <div className="item" style={{textDecoration: item.isCompleted ? "line-through" : "none"}}>
             <input className="item-todo"value={item.value} disabled={edit} onChange={event => changeText(event,index)} />
             <div>
                 <button className="btn-item" onClick={() => completeItem(index)}><RiCheckboxCircleLine /></button>

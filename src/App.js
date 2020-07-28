@@ -18,7 +18,7 @@ function App() {
 
   const completeItem = index =>{
     const newItem = [...list]
-    newItem[index].isCompleted = true;
+    newItem[index].isCompleted = !newItem[index].isCompleted ;
     setList(newItem)
   }
 
