@@ -38,5 +38,13 @@
 
 }
 
+@media (min-width :700px){
 
+.addItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+        }
 
+    }
