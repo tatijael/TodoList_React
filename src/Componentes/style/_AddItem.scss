@@ -23,18 +23,20 @@
 
 .addItem {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 90%;
 }
 
-@media (mind-width :1200){
-    #list{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+@media (min-width :900px){
+
+.addItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+        }
+
 }
+
 
 
